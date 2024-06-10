@@ -27,6 +27,9 @@ class BaseVectorizer:
     def dumps(self) -> Dict[str, Any]:
         raise NotImplementedError
     
+    def train(self, texts:List[str]) -> List[Tuple[int, float]]:
+        raise NotImplementedError
+    
     def load(self, path:str) -> Dict[str, Any]:
         self.tokenizer.load(os.path.join(path, self.tokenizer_file_name))
         self._load_model(path)
